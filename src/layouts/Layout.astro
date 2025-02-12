@@ -1,22 +1,37 @@
+---
+const {
+  title,
+  description = "Your source for video game news, reviews, and features",
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <footer class="bg-gray-800 text-gray-300 p-6 mt-10">
+      <div class="container mx-auto">
+        <div class="flex justify-between items-center">
+          <p>&copy; {new Date().getFullYear()} GameHub. All rights reserved.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-gaming-accent"
+              >Twitter</a
+            >
+            <a href="#" class="text-gray-300 hover:text-gaming-accent"
+              >Facebook</a
+            >
+            <a href="#" class="text-gray-300 hover:text-gaming-accent"
+              >Instagram</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

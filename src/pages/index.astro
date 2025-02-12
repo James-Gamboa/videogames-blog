@@ -1,11 +1,54 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import GameCard from "../components/GameCard.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const featuredPosts = [
+  {
+    title: "The Latest Gaming Trends of 2025",
+    excerpt:
+      "Discover what's shaping the gaming industry this year, from AI-driven narratives to revolutionary gameplay mechanics.",
+    featuredImage:
+      "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&auto=format&fit=crop",
+    date: "April 1, 2024",
+    slug: "gaming-trends-2024",
+  },
+  {
+    title: "Top RPGs You Can't Miss",
+    excerpt:
+      "From sprawling open worlds to character-driven narratives, these RPGs are setting new standards in gaming.",
+    featuredImage:
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&auto=format&fit=crop",
+    date: "March 28, 2024",
+    slug: "top-rpgs-2024",
+  },
+  {
+    title: "The Evolution of Esports",
+    excerpt:
+      "How competitive gaming has transformed from niche hobby to mainstream entertainment phenomenon.",
+    featuredImage:
+      "https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800&auto=format&fit=crop",
+    date: "March 25, 2024",
+    slug: "esports-evolution",
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="GameHub – Tu web de noticias">
+  <section class="bg-black text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl font-bold mb-6">¡Bienvenido a GameHub!</h1>
+      <p class="text-xl max-w-2xl mx-auto">
+        Aquí encontrarás noticias de los últimos juegos, reseñas y guías de
+        videojuegos. ¡Disfruta de la información más actualizada y de las
+        mejores noticias del mundo de los videojuegos!
+      </p>
+    </div>
+  </section>
+
+  <section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-center">Últimos artículos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {featuredPosts.map((post) => <GameCard {...post} />)}
+    </div>
+  </section>
 </Layout>
